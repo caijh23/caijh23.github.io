@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,106 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Homework-lesson5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/14/Homework-lesson5/" class="article-date">
+  <time datetime="2018-04-14T01:46:19.000Z" itemprop="datePublished">2018-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/14/Homework-lesson5/">Homework_lesson5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-作业要求"><a href="#1-作业要求" class="headerlink" title="1.作业要求"></a>1.作业要求</h2><p>每人至少一篇 技术学习报告 或 工具使用方法 或 项目工作经验总结 或 其他值得分享的项目知识。如果你已有博客，请在标题上做连接。<br><br>个人大概用了一下下面几个工具，这里稍微介绍一下：</p>
+<ul>
+<li>umlet工具绘制uml图或者用例图</li>
+<li>使用api blueprint编写api文档<h2 id="umlet工具的使用"><a href="#umlet工具的使用" class="headerlink" title="umlet工具的使用"></a>umlet工具的使用</h2></li>
+<li>安装</li>
+</ul>
+<p>ubuntu环境下比较方便直接输入以下命令即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt intsall umlet</span><br></pre></td></tr></table></figure></p>
+<p>安装完后在控制台上输入umlet就可以打开，可以把它锁定到任务栏方便打开。</p>
+<p>windows平台的话去官网下一下安装包顺便配置一下相关的jdk即可。</p>
+<ul>
+<li>使用umlet绘图</li>
+</ul>
+<p>首先在右上角可以选择绘制的图的类型，比如这里我选择了用例图<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic1.png" alt="pic1"><br>然后就可以看到下方各种相关图形<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic2.png" alt="pic2"><br>双击图形（或者直接拖到左边，箭头只能双击）即可在左边的编辑框内编辑，点击在左边编辑框内的图形，则可以在右下角的方框内编写该图形相关属性，比如我编写了一个名为example的user case并且把它的背景颜色置为红色。<br><br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic3.png" alt="pic3"><br><br><br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic4.png" alt="pic4"><br><br>编辑完后最后保存即可，umlet会生成一个.uxf文件下次可以打开。</p>
+<h2 id="使用api-blueprint编写api文档"><a href="#使用api-blueprint编写api文档" class="headerlink" title="使用api blueprint编写api文档"></a>使用api blueprint编写api文档</h2><p>api blueprint可以用来编写http api文档，并且可以使用模拟服务器方便前后端同时开发，这里主要说一下怎么连到github上你加入的组织(连到个人仓库按照官网指示一步步进入就可以了)</p>
+<ul>
+<li>关联github账号<br>首先去官网按照官网提示一步步将github账号关联上去即可，这边是官网链接<br><a href="https://apiary.io/" target="_blank" rel="noopener">https://apiary.io/</a></li>
+<li>连接到你加入的组织<br>首先要确保你给了该应用权限，在github的setting的application选项里面我们可以看到<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic5.png" alt="pic5"><br>进去后你可以看到如下界面则你已经给了apiary足够权限，那么你只要在下面的Organization access给你要连接到的组织选项点击发送一份邮件给组织的owner让他确认后你就可以连接上去了<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic6.png" alt="pic6"><br>然后在apiary官网那边你就可以选择到该organization内的repo了。<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic7.png" alt="pic7"><br>更多详细的文档可以看官方的这份文档<a href="https://help.apiary.io/tools/troubleshooting-github/#connecting-organization-repository" target="_blank" rel="noopener">文档</a></li>
+<li>至于编写文档其实就跟写markdown差不多，参考一下文档就可以了，编写完后访问<a href="https://xxxx.docs.apiary.io(其中xxxx是你编写文档的时候写的host)就可以看到一份文档，点击api名称就可以看到详情，选择mock" target="_blank" rel="noopener">https://xxxx.docs.apiary.io(其中xxxx是你编写文档的时候写的host)就可以看到一份文档，点击api名称就可以看到详情，选择mock</a> server就可以看到对应的api地址，前后端就可以同时开始开发了。<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic8.png" alt="pic8"></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/14/Homework-lesson5/" data-id="cjfysdc070002g6nqt7k0as7c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/31/hello-world/" class="article-date">
+  <time datetime="2018-03-31T12:50:22.216Z" itemprop="datePublished">2018-03-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/31/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/31/hello-world/" data-id="cjfysdc0d0003g6nqwtbzifh1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-HomeWork-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -145,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/HomeWork-2/" data-id="cjf2h2a4f00038ukrzvpzhakg" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/18/HomeWork-2/" data-id="cjfysdbzz0001g6nqyje9k60k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -214,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/HomeWork-1/" data-id="cjf2h2a1d00008ukrsaziphm7" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/14/HomeWork-1/" data-id="cjfysdbzi0000g6nqcbm5u09t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -251,52 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/helloHexo/" data-id="cjf2h2a3t00028ukrkfzv3b2o" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/14/hello-world/" class="article-date">
-  <time datetime="2018-03-13T16:11:43.197Z" itemprop="datePublished">2018-03-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/hello-world/" data-id="cjf2h2a2u00018ukr4bje3ahh" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/14/helloHexo/" data-id="cjfysdc1y0004g6nq7bktgbku" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,9 +377,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
     </div>
   </div>
 
@@ -332,9 +387,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/04/14/Homework-lesson5/">Homework_lesson5</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/31/hello-world/">Hello World</a>
+          </li>
         
           <li>
             <a href="/2018/03/18/HomeWork-2/">HomeWork 2</a>
@@ -346,10 +409,6 @@
         
           <li>
             <a href="/2018/03/14/helloHexo/">helloHexo</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/14/hello-world/">Hello World</a>
           </li>
         
       </ul>
