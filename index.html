@@ -61,6 +61,84 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HomeworkLesson13" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/02/HomeworkLesson13/" class="article-date">
+  <time datetime="2018-06-02T06:11:28.000Z" itemprop="datePublished">2018-06-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/02/HomeworkLesson13/">HomeworkLesson13</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-描述软件架构与框架之间的区别与联系"><a href="#1-描述软件架构与框架之间的区别与联系" class="headerlink" title="1.描述软件架构与框架之间的区别与联系"></a>1.描述软件架构与框架之间的区别与联系</h4><p>软件架构</p>
+<ul>
+<li>定义：软件架构就是把系统分解为一些部件，描述这些部件的职责及它们之间的协作行为。</li>
+<li>特点<ul>
+<li>软件结构是业界长期最佳实践的总结。</li>
+<li>软件架构是对系统的一种理解，与具体语言无关。</li>
+</ul>
+</li>
+</ul>
+<p>应用程序框架</p>
+<ul>
+<li>定义：框架是特定语言和技术的架构应用解决方案。例如 Java Spring web framework，它包含了 Java 开发 web 应用的各种业务场景的具体解决方案。</li>
+<li>特点<ul>
+<li>框架是具体语言和技术相关的。 </li>
+<li>框架是一种或多种架构的组合的实现。</li>
+<li>框架是集成了你的代码和多种第三方解决方案的工具，让你聚焦 业务逻辑代码 而 不是技术实现。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-以你的项目为案例"><a href="#2-以你的项目为案例" class="headerlink" title="2.以你的项目为案例"></a>2.以你的项目为案例</h4><ul>
+<li>绘制三层架构模型图，细致到分区</li>
+<li>结合你程序的结构，从程序员角度说明三层架构给开发者带来的便利</li>
+</ul>
+<p>三层模型图如下图所示<br><img src="/2018/06/02/HomeworkLesson13/order_architecture.png" alt="order_arch"></p>
+<ul>
+<li>对于负责表示层的程序员，他只需关注MVC模型，处理 HTTP Request，然后调用业务服务，产生Response，而不需关注其他两层的编程元素</li>
+<li>对于负责业务层的程序员，他只需提供满足各个业务的服务模块，以满足restfulAPI规范的接口</li>
+<li>对于负责持久化层的程序员，他只需关注数据库机制，提供ORM支持返回数据对象供业务层调用</li>
+</ul>
+<h4 id="3-研究-VUE-与-Flux-状态管理的异同"><a href="#3-研究-VUE-与-Flux-状态管理的异同" class="headerlink" title="3.研究 VUE 与 Flux 状态管理的异同"></a>3.研究 VUE 与 Flux 状态管理的异同</h4><h5 id="对于Flux，可以参考官网的图"><a href="#对于Flux，可以参考官网的图" class="headerlink" title="对于Flux，可以参考官网的图"></a>对于Flux，可以参考官网的图</h5><p><img src="/2018/06/02/HomeworkLesson13/flux.png" alt="flux"></p>
+<h5 id="对于VUE，提供状态管理机制的主要是vuex，这里可以看官网给出的图"><a href="#对于VUE，提供状态管理机制的主要是vuex，这里可以看官网给出的图" class="headerlink" title="对于VUE，提供状态管理机制的主要是vuex，这里可以看官网给出的图"></a>对于VUE，提供状态管理机制的主要是vuex，这里可以看官网给出的图</h5><p><img src="/2018/06/02/HomeworkLesson13/vuex.png" alt="vuex"></p>
+<p>下面是对于flux和vuex异同的说明</p>
+<ul>
+<li>flux : 一个 Model 可以被多个 Views 读取或被多个 Controllers 进行更新。在大型应用中，一个 Model 可能使多个 Views 去通知 Controllers，并可能触发更多的 Model 更新，这样结果就会变得非常复杂。Flux 通过强制单向数据流来解决这个额问题。Flux 使 Views 查询 Stores（而不是 Models），用户交互触发的 Actions 被提交到一个 Dispatcher 中。当 Actions 被派发后，Stores 将会随之更新自己并且通知 Views 进行修改。这些 Store 当中的修改会进一步促使 Views 查询新的数据。即在相对独立的组件中，action -&gt; state -&gt; view 的单向数据流能得到保证。</li>
+<li>vuex : Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。<ul>
+<li>应用级的状态由store集中管理</li>
+<li>修改状态的唯一方式是commit同步的mutation</li>
+<li>异步逻辑放在action里</li>
+</ul>
+</li>
+<li>总结：两者相比，vuex只有一个store(即vuex对象),而flux少了vuex通过action和mutation把异步与同步区别开来,vuex由store自身充当dispatcher（即view触发的动作都由vuex来注册/分发action和mutation）。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/02/HomeworkLesson13/" data-id="cjhx9qv0l0002i0nqiobdo5uj" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HomeworkLesson9" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/14/HomeworkLesson9/" class="article-date">
@@ -95,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/14/HomeworkLesson9/" data-id="cjh5246d80003qanqkfkld9h6" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/14/HomeworkLesson9/" data-id="cjhx9qv2w0008i0nqbn245mrl" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -137,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/04/HomeworkLesson8/" data-id="cjh5246cu0002qanqj7s21e0v" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/04/HomeworkLesson8/" data-id="cjhx9qv1e0005i0nq07r57imh" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -191,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/29/Homework-lesson7/" data-id="cjh5246je0008qanqtdkug8rt" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/29/Homework-lesson7/" data-id="cjhx9qv1r0007i0nq1pm8cwrn" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -309,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/22/HomeworkLesson6/" data-id="cjh5246iz0006qanq3aijzroa" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/22/HomeworkLesson6/" data-id="cjhx9qv170004i0nq8ujmfgjd" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -364,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/14/Homework-lesson5/" data-id="cjh5246dl0005qanqs9j0k0pl" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/14/Homework-lesson5/" data-id="cjhx9qv0z0003i0nqx9jh3eyp" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -409,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/31/hello-world/" data-id="cjh5246de0004qanqa8trwlsz" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/31/hello-world/" data-id="cjhx9qv1k0006i0nqcbb1x67b" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -503,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/HomeWork-2/" data-id="cjh5246c30000qanqqslag8e3" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/18/HomeWork-2/" data-id="cjhx9quzo0000i0nq9eqfza5k" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -572,7 +650,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/HomeWork-1/" data-id="cjh5246cl0001qanqc05upy8s" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/14/HomeWork-1/" data-id="cjhx9qv090001i0nqzlr41v1i" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -609,7 +687,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/helloHexo/" data-id="cjh5246j70007qanqojis7d7q" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/14/helloHexo/" data-id="cjhx9qv340009i0nqwzptlm6j" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -637,7 +715,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
     </div>
   </div>
 
@@ -648,6 +726,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/02/HomeworkLesson13/">HomeworkLesson13</a>
+          </li>
         
           <li>
             <a href="/2018/05/14/HomeworkLesson9/">HomeworkLesson9</a>
@@ -663,10 +745,6 @@
         
           <li>
             <a href="/2018/04/22/HomeworkLesson6/">HomeworkLesson6</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/14/Homework-lesson5/">Homework_lesson5</a>
           </li>
         
       </ul>
