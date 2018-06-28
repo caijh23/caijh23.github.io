@@ -5,21 +5,24 @@
   
 
   
-  <title>HomeworkLesson8 | Hexo</title>
+  <title>HomeworkLesson16 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1）使用 UML State Model 建模对象： 参考 Asg_RH 文档， 对 Reservation/Order 对象建模。 建模要求： 参考练习不能提供足够信息帮助你对订单对象建模，请参考现在 定旅馆 的旅游网站，尽可能分析围绕订单发生的各种情况，直到订单通过销售事件（柜台销售）结束订单。  如下图所示： 2）研究淘宝退货流程活动图，对退货业务对象状态建模如下图所示：">
+  <meta name="description" content="1.使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图) 用例简介     顺序图    类图   2.将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HomeworkLesson8">
-<meta property="og:url" content="http://yoursite.com/2018/05/04/HomeworkLesson8/index.html">
+<meta property="og:title" content="HomeworkLesson16">
+<meta property="og:url" content="http://yoursite.com/2018/06/27/HomeworkLesson16/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1）使用 UML State Model 建模对象： 参考 Asg_RH 文档， 对 Reservation/Order 对象建模。 建模要求： 参考练习不能提供足够信息帮助你对订单对象建模，请参考现在 定旅馆 的旅游网站，尽可能分析围绕订单发生的各种情况，直到订单通过销售事件（柜台销售）结束订单。  如下图所示： 2）研究淘宝退货流程活动图，对退货业务对象状态建模如下图所示：">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/HomeworkLesson8/RH_order.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/HomeworkLesson8/taobao.png">
-<meta property="og:updated_time" content="2018-05-04T14:52:22.895Z">
+<meta property="og:description" content="1.使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图) 用例简介     顺序图    类图   2.将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类">
+<meta property="og:image" content="http://yoursite.com/2018/06/27/HomeworkLesson16/makeReservation.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/27/HomeworkLesson16/makeReservation2.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/27/HomeworkLesson16/makeReservation3.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/27/HomeworkLesson16/makeReservation4.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/27/HomeworkLesson16/makeReservation5.png">
+<meta property="og:updated_time" content="2018-06-28T06:39:08.656Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HomeworkLesson8">
-<meta name="twitter:description" content="1）使用 UML State Model 建模对象： 参考 Asg_RH 文档， 对 Reservation/Order 对象建模。 建模要求： 参考练习不能提供足够信息帮助你对订单对象建模，请参考现在 定旅馆 的旅游网站，尽可能分析围绕订单发生的各种情况，直到订单通过销售事件（柜台销售）结束订单。  如下图所示： 2）研究淘宝退货流程活动图，对退货业务对象状态建模如下图所示：">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/04/HomeworkLesson8/RH_order.png">
+<meta name="twitter:title" content="HomeworkLesson16">
+<meta name="twitter:description" content="1.使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图) 用例简介     顺序图    类图   2.将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/27/HomeworkLesson16/makeReservation.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -66,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-HomeworkLesson8" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-HomeworkLesson16" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/04/HomeworkLesson8/" class="article-date">
-  <time datetime="2018-05-04T14:12:46.000Z" itemprop="datePublished">2018-05-04</time>
+    <a href="/2018/06/27/HomeworkLesson16/" class="article-date">
+  <time datetime="2018-06-27T15:52:44.000Z" itemprop="datePublished">2018-06-27</time>
 </a>
     
   </div>
@@ -80,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HomeworkLesson8
+      HomeworkLesson16
     </h1>
   
 
@@ -88,17 +91,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1）使用-UML-State-Model"><a href="#1）使用-UML-State-Model" class="headerlink" title="1）使用 UML State Model"></a>1）使用 UML State Model</h4><ul>
-<li>建模对象： 参考 Asg_RH 文档， 对 Reservation/Order 对象建模。</li>
-<li>建模要求： 参考练习不能提供足够信息帮助你对订单对象建模，请参考现在 定旅馆 的旅游网站，尽可能分析围绕订单发生的各种情况，直到订单通过销售事件（柜台销售）结束订单。</li>
+        <h4 id="1-使用-ECB-实现-make-reservation-用例的详细设计（包含用例简介，顺序图，类图"><a href="#1-使用-ECB-实现-make-reservation-用例的详细设计（包含用例简介，顺序图，类图" class="headerlink" title="1.使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图)"></a>1.使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图)</h4><ul>
+<li>用例简介</li>
 </ul>
-<p>如下图所示：<br><img src="/2018/05/04/HomeworkLesson8/RH_order.png" alt="order"></p>
-<h4 id="2）研究淘宝退货流程活动图，对退货业务对象状态建模"><a href="#2）研究淘宝退货流程活动图，对退货业务对象状态建模" class="headerlink" title="2）研究淘宝退货流程活动图，对退货业务对象状态建模"></a>2）研究淘宝退货流程活动图，对退货业务对象状态建模</h4><p>如下图所示：<br><img src="/2018/05/04/HomeworkLesson8/taobao.png" alt="taobao"></p>
+<p><img src="/2018/06/27/HomeworkLesson16/makeReservation.png" alt="usercase"></p>
+<p><img src="/2018/06/27/HomeworkLesson16/makeReservation2.png" alt="usercase"></p>
+<ul>
+<li>顺序图</li>
+</ul>
+<p><img src="/2018/06/27/HomeworkLesson16/makeReservation3.png" alt="sequence"></p>
+<ul>
+<li>类图</li>
+</ul>
+<p><img src="/2018/06/27/HomeworkLesson16/makeReservation4.png" alt="class"></p>
+<h4 id="2-将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类"><a href="#2-将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类" class="headerlink" title="2.将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类"></a>2.将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类</h4><p><img src="/2018/06/27/HomeworkLesson16/makeReservation5.png" alt="code"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/04/HomeworkLesson8/" data-id="cjiy6icmq0005jgnqtgdtqt5u" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/27/HomeworkLesson16/" data-id="cjiy6icm10002jgnqliu7v6pv" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -107,19 +118,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/05/14/HomeworkLesson9/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          HomeworkLesson9
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/29/Homework-lesson7/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/06/02/HomeworkLesson13/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Homework_lesson7</div>
+      <div class="article-nav-title">HomeworkLesson13</div>
     </a>
   
 </nav>
