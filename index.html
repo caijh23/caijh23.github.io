@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,63 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-系分项目运维日记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/30/系分项目运维日记/" class="article-date">
+  <time datetime="2018-06-30T08:49:45.000Z" itemprop="datePublished">2018-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/系分项目运维日记/">系分项目运维日记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="运维日记"><a href="#运维日记" class="headerlink" title="运维日记"></a>运维日记</h4><p>在服务器上配置ngnix服务器反向代理转发API请求遇到如下两个坑</p>
+<ul>
+<li>安装ngnix时遇到一些依赖问题</li>
+<li>vue router history mode在非服务器根目录下conf的配置<h5 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h5>首先去ngnix官网下载安装包，可以用curl或wget直接下到服务器上<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.9.9.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解压<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.9.9.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>然后先进入解压好的文件夹内编译安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> nginx-1.9.9/</span><br><span class="line">./configure</span><br></pre></td></tr></table></figure></p>
+<p>这时候还没make编译但是报了个少pcre的错误<br>如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure: error: the HTTP rewrite module requires the PCRE library.</span><br><span class="line">You can either <span class="built_in">disable</span> the module by using --without-http_rewrite_module</span><br><span class="line">option, or install the PCRE library into the system, or build the PCRE library</span><br><span class="line">statically from the <span class="built_in">source</span> with nginx by using --with-pcre=&lt;path&gt; option.</span><br></pre></td></tr></table></figure></p>
+<p>然后去pcre官网下安装包，同理用wget或者curl下载到服务器上，然后解压安装，这是官网链接<a href="https://ftp.pcre.org/pub/pcre/" target="_blank" rel="noopener">https://ftp.pcre.org/pub/pcre/</a><br>同理解压后安装如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> pcre-8.42/</span><br><span class="line">./configure  --prefix=/usr/<span class="built_in">local</span>/pcre</span><br><span class="line">make</span><br><span class="line">make check</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>上面的check选项用于测试是否编译出错<br>安装完毕后重新安装ngnix<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/nginx  --with-pcre=/usr/<span class="built_in">local</span>/pcre/</span><br></pre></td></tr></table></figure></p>
+<p>这个时候仍然缺少zlib库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./configure: error: the HTTP gzip module requires the zlib library.</span><br><span class="line">You can either <span class="built_in">disable</span> the module by using --without-http_gzip_module</span><br><span class="line">option, or install the zlib library into the system, or build the zlib library</span><br><span class="line">statically from the <span class="built_in">source</span> with nginx by using --with-zlib=&lt;path&gt; option.</span><br></pre></td></tr></table></figure></p>
+<p>直接用apt安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zlib1g</span><br><span class="line">sudo apt install zlib1g-dev</span><br></pre></td></tr></table></figure></p>
+<p>然后搜了一下资料把其他相关依赖也装了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libpcre3 libpcre3-dev libpcrecpp0v5 libssl-dev</span><br></pre></td></tr></table></figure></p>
+<p>之后安装ngnix<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>去安全组那边开放80端口</p>
+<p><img src="/2018/06/30/系分项目运维日记/1530004461472.png" alt="Alt text"></p>
+<p>然后去ngnix目录启动ngnix<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/ngnix/sbin</span><br><span class="line">sudo ./ngnix</span><br></pre></td></tr></table></figure></p>
+<h4 id="关于Vue的history-mode在配置ngnix时的一些坑"><a href="#关于Vue的history-mode在配置ngnix时的一些坑" class="headerlink" title="关于Vue的history mode在配置ngnix时的一些坑"></a>关于Vue的history mode在配置ngnix时的一些坑</h4><p>vue router默认是hash模式，但是我们在项目中用url的params来确定桌子号故必须用history模式，一开始我按照官网教程编译完直接使用try_files指令配置ngnix但是一直找不到资源，后来翻国外论坛看到了，大概如下配置<br>首先要更改Vue Router的配置的base路径（下面的/cloud/路径即为服务器中该项目前端资源的路径）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">base: <span class="string">'/cloud/'</span>,</span><br><span class="line"><span class="comment">// base: __dirname,</span></span><br></pre></td></tr></table></figure></p>
+<p>然后更改config/index.js里的配置文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">assetsPublicPath: <span class="string">'/cloud/'</span>, </span><br><span class="line"><span class="comment">// assetsPublicPath: '/',</span></span><br></pre></td></tr></table></figure></p>
+<p>最后在ngnix的配置文件中使用alias命令定位资源<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span><span class="regexp"> ^~</span> /cloud/ &#123;</span><br><span class="line">           <span class="attribute">alias</span> /home/ubuntu/EasyOrderMeal/WebOrder/dist/;</span><br><span class="line">           <span class="attribute">index</span> index.html index.htm;</span><br><span class="line">           <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /cloud/index.html;</span><br><span class="line">           <span class="comment">#root   html;</span></span><br><span class="line">           <span class="comment">#proxy_pass http://localhost:8080;</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/30/系分项目运维日记/" data-id="cjj169fcq0008d0nq1aqgubym" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-HomeworkLesson16" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -101,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/27/HomeworkLesson16/" data-id="cjiy6icm10002jgnqliu7v6pv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/27/HomeworkLesson16/" data-id="cjj169fbq0003d0nqgyd6r1t3" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -179,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/02/HomeworkLesson13/" data-id="cjiy6icmc0003jgnqxwh0zlrx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/02/HomeworkLesson13/" data-id="cjj169fcj0007d0nqsd2vnorg" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -223,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/14/HomeworkLesson9/" data-id="cjiy6ico9000ajgnq787synzw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/14/HomeworkLesson9/" data-id="cjj169fle000ad0nqn1hgybwm" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -265,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/04/HomeworkLesson8/" data-id="cjiy6icmq0005jgnqtgdtqt5u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/04/HomeworkLesson8/" data-id="cjj169fcc0006d0nq2p0wa74i" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -319,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/29/Homework-lesson7/" data-id="cjiy6icmw0006jgnqwc6wbtt6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/29/Homework-lesson7/" data-id="cjj169fbx0004d0nqn5mv3pct" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -437,7 +494,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/22/HomeworkLesson6/" data-id="cjiy6icmj0004jgnq5afi2zg1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/22/HomeworkLesson6/" data-id="cjj169fc50005d0nq88yvgbi9" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -492,7 +549,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/14/Homework-lesson5/" data-id="cjiy6icn20007jgnquvr8k31z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/14/Homework-lesson5/" data-id="cjj169fax0001d0nqu4v015jp" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -537,7 +594,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/31/hello-world/" data-id="cjiy6icn80008jgnqbsbuxu2t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/31/hello-world/" data-id="cjj169fnw000bd0nq5dimqz5e" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -631,76 +688,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/HomeWork-2/" data-id="cjiy6icl50000jgnqa7kswd56" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HomeWork-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/14/HomeWork-1/" class="article-date">
-  <time datetime="2018-03-14T02:42:09.000Z" itemprop="datePublished">2018-03-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/14/HomeWork-1/">HomeWork 1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1、简单题"><a href="#1、简单题" class="headerlink" title="1、简单题"></a>1、简单题</h2><h4 id="软件工程的定义"><a href="#软件工程的定义" class="headerlink" title="软件工程的定义"></a>软件工程的定义</h4><p>根据IEEE的定义，a.软件工程是将系统化、规范化、可度量化的方法应用于软件的开发、运行和维护，即将工程化方法应用于软件；b.在a中所述方法的研究。</p>
-<h4 id="阅读经典名著“人月神话”等资料，解释-software-crisis、COCOMO-模型"><a href="#阅读经典名著“人月神话”等资料，解释-software-crisis、COCOMO-模型" class="headerlink" title="阅读经典名著“人月神话”等资料，解释 software crisis、COCOMO 模型"></a>阅读经典名著“人月神话”等资料，解释 software crisis、COCOMO 模型</h4><ul>
-<li>software crisis ： 即软件危机，是早期计算机科学的一个术语，是指在软件开发及维护的过程中所遇到的一系列严重问题，这些问题皆可能导致软件产品的寿命缩短、甚至夭折。</li>
-<li>COCOMO模型 ： 即构造性成本模型，是由巴里·勃姆提出的一种软件成本估算方法。这种模型使用一种基本的回归分析公式，使用从项目历史和现状中的某些特征作为参数来进行计算。<h4 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h4>软件生命周期（SDLC）是软件的产生直到报废的生命周期，周期内有问题定义、可行性分析、总体描述、系统设计、编码、调试和测试、验收与运行、维护升级到废弃等阶段，这种按时间分程的思想方法是软件工程中的一种思想原则，即按部就班、逐步推进，每个阶段都要有定义、工作、审查、形成文档以供交流或备查，以提高软件的质量。<h4 id="按照-SWEBok-的-KA-划分，本课程关注哪些-KA-或-知识领域？"><a href="#按照-SWEBok-的-KA-划分，本课程关注哪些-KA-或-知识领域？" class="headerlink" title="按照 SWEBok 的 KA 划分，本课程关注哪些 KA 或 知识领域？"></a>按照 SWEBok 的 KA 划分，本课程关注哪些 KA 或 知识领域？</h4>ACM与IEEE Computer Society联合修定的SWEBOK（Software Engineering Body of Knowledge）提到，软件工程领域中的核心知识包括：</li>
-<li>software requirements (软件需求)</li>
-<li>software design (软件设计)</li>
-<li>software construction (软件建构)</li>
-<li>software engineering management (软件测试)</li>
-<li>software maintenance (软件维护与更新)</li>
-<li>software configuration management, SCM (软件构型管理)</li>
-<li>software engineering management (软件工程管理)</li>
-<li>software development process (软件开发过程)</li>
-<li>software engineering tools and methods (软件工程工具与方法)</li>
-<li>software quality (软件质量)</li>
-</ul>
-<p>本课程关注软件设计、软件测试、软件构型管理、软件工程管理、软件开发过程、软件质量等核心知识。</p>
-<h4 id="解释-CMMI-的五个级别。例如：Level-1-Initial：无序，自发生产模式"><a href="#解释-CMMI-的五个级别。例如：Level-1-Initial：无序，自发生产模式" class="headerlink" title="解释 CMMI 的五个级别。例如：Level 1 - Initial：无序，自发生产模式"></a>解释 CMMI 的五个级别。例如：Level 1 - Initial：无序，自发生产模式</h4><ul>
-<li>Level 1 - Initial：无序，自发的生产模式。</li>
-<li>Level 2 - Repeatable：有基本的项目管理过程，制定必要规律，管理化制度的生产模式。</li>
-<li>Level 3 - Defined：软件管理及工程过程化、标准化，完善培训和评价制度的生产模式。</li>
-<li>Level 4 - Managed：分析度量数据，控制生产流程，管理预测性能的生产模式。</li>
-<li>Level 5 - Optimizing：量化反馈、持续更新、改善流程，集中精力改进过程的生产模式。<h4 id="用自己语言简述-SWEBok-或-CMMI-（约200字"><a href="#用自己语言简述-SWEBok-或-CMMI-（约200字" class="headerlink" title="用自己语言简述 SWEBok 或 CMMI （约200字)"></a>用自己语言简述 SWEBok 或 CMMI （约200字)</h4></li>
-<li>SWEBok : SoftWare Engineering Body Of Knowledge,软件工程知识体系，是由多个行业成员和团体合作建立的一种国际标准，用于说明软件工程知识体系指南。建立SWEBok的目标在于促进世界范围内对软件工程的一致观点，阐明软件工程相对其他学科的位置并确立它们的界限，刻画软件工程学科的内容，提供使用知识体系的主题，为开发课程表和个人认证与许可材料，提供一个基础。SWEBok的知识领域在前面的问题中已经回答，到目前为止的版本一共定义了15个KAs，而与SWEBok相关的学科则有计算机工程，计算机科学，管理，数学，项目管理，质量管理，软件人类工程学，系统工程。</li>
-<li>CMMI : Capability Maturity Model Integration，即能力成熟度模型集成（也有称为：软件能力成熟度集成模型）,是一套融合多学科的、可扩充的产品集合， 其研制的初步动机是为了利用两个或多个单一学科的模型实现一个组织的集成化过程改进。CMMI的本质是软件管理工程的一个部分。CMMI分为五个级别，可以大致理解为初始级，可重复级，已定义级，量化管理级，优化管理级。CMMI的五个级别可看作五个台阶，每一个台阶都是上面一阶台阶的基石。要上高层台阶必须首先踏上较低一层台阶。企业在实施CMMI的时候，一般地讲，应该先从二级入手。在管理上下功夫。争取最终实现CMMI的第五级,达到CMMI的目的，即高效率、高质量和低成本地开发软件,改善软件生产过程。</li>
-</ul>
-<h2 id="2、解释-PSP-各项指标及技能要求："><a href="#2、解释-PSP-各项指标及技能要求：" class="headerlink" title="2、解释 PSP 各项指标及技能要求："></a>2、解释 PSP 各项指标及技能要求：</h2><h4 id="阅读《现代软件工程》的-PSP-Personal-Software-Process-章节。-http-www-cnblogs-com-xinz-archive-2011-11-27-2265425-html"><a href="#阅读《现代软件工程》的-PSP-Personal-Software-Process-章节。-http-www-cnblogs-com-xinz-archive-2011-11-27-2265425-html" class="headerlink" title="阅读《现代软件工程》的 PSP: Personal Software Process 章节。 http://www.cnblogs.com/xinz/archive/2011/11/27/2265425.html"></a>阅读《现代软件工程》的 PSP: Personal Software Process 章节。 <a href="http://www.cnblogs.com/xinz/archive/2011/11/27/2265425.html" target="_blank" rel="noopener">http://www.cnblogs.com/xinz/archive/2011/11/27/2265425.html</a></h4><h4 id="按表格-PSP-2-1，-了解一个软件工程师在接到一个任务之后要做什么，需要哪些技能，解释你打算如何统计每项数据？-（期末考核，每人按开发阶段提交这个表）"><a href="#按表格-PSP-2-1，-了解一个软件工程师在接到一个任务之后要做什么，需要哪些技能，解释你打算如何统计每项数据？-（期末考核，每人按开发阶段提交这个表）" class="headerlink" title="按表格 PSP 2.1， 了解一个软件工程师在接到一个任务之后要做什么，需要哪些技能，解释你打算如何统计每项数据？ （期末考核，每人按开发阶段提交这个表）"></a>按表格 PSP 2.1， 了解一个软件工程师在接到一个任务之后要做什么，需要哪些技能，解释你打算如何统计每项数据？ （期末考核，每人按开发阶段提交这个表）</h4><p>表格PSP 2.1如下<br><img src="/2018/03/14/HomeWork-1/PSP.jpg" alt="Alt text"><br>需要做的事情如上表。<br>需要的职业技能为</p>
-<ul>
-<li>自我管理的能力;</li>
-<li>团队执行能力；</li>
-<li>时间管理能力；</li>
-<li>对应的编程技术能力；</li>
-</ul>
-<p>如何统计数据：<br>对每一项的数据进行分开统计，在统计的过程中注意统计有效时间而不是全部时间，而在计量单位上可以使用推荐的每人每月工作量来统计。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/14/HomeWork-1/" data-id="cjiy6iclp0001jgnqzyccn44q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/18/HomeWork-2/" data-id="cjj169fb70002d0nq97pshqsi" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -714,7 +702,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -731,7 +719,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
     </div>
@@ -741,9 +729,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/30/系分项目运维日记/">系分项目运维日记</a>
+          </li>
         
           <li>
             <a href="/2018/06/27/HomeworkLesson16/">HomeworkLesson16</a>
@@ -759,10 +751,6 @@
         
           <li>
             <a href="/2018/05/04/HomeworkLesson8/">HomeworkLesson8</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/29/Homework-lesson7/">Homework_lesson7</a>
           </li>
         
       </ul>
