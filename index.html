@@ -61,6 +61,189 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-关于dom的事件传播机制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/30/关于dom的事件传播机制/" class="article-date">
+  <time datetime="2018-06-30T15:19:40.000Z" itemprop="datePublished">2018-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/关于dom的事件传播机制/">关于dom的事件传播机制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="关于dom的事件传播机制"><a href="#关于dom的事件传播机制" class="headerlink" title="关于dom的事件传播机制"></a>关于dom的事件传播机制</h4><p>场景： Vue项目里点击一个菜品列表的一个item进去详细信息页，在点击item内部的加号按钮时同时触发了加号按钮监听的事件和点击item跳转的事件<br>解决方案：可以利用dom的事件流原理解决</p>
+<h4 id="关于dom的事件流"><a href="#关于dom的事件流" class="headerlink" title="关于dom的事件流"></a>关于dom的事件流</h4><p>dom的事件流有两种模式，冒泡和捕获</p>
+<ul>
+<li>冒泡模式：冒泡模式下事件从触发的element开始逐层往父节点传递</li>
+<li>捕获模式：捕获模式顺序和冒泡模式反过来</li>
+</ul>
+<p>由于历史原因现在默认是冒泡模式，要更改模式可以调用addEventListener接口把最后一个参数赋值true就行</p>
+<h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><p>在我的项目中父对象是item子对象是i标签,大概如下的结构<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>可以在父对象监听器调用的函数判断event的触发者<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">viewDetailedDish (d, event) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(event.target.tagName)</span><br><span class="line">    <span class="keyword">if</span> (event.target.tagName === <span class="string">'I'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.dishes)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'prevent'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setDetailDish(d)</span><br><span class="line">        <span class="keyword">this</span>.$router.push(&#123;<span class="attr">name</span>: <span class="string">'Details'</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/30/关于dom的事件传播机制/" data-id="cjj1knuac0009i0nq1bm7e0fg" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-finalReport" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/30/finalReport/" class="article-date">
+  <time datetime="2018-06-30T14:08:12.000Z" itemprop="datePublished">2018-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/finalReport/">finalReport</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="简短的课程学习自我总结（400字以内）"><a href="#简短的课程学习自我总结（400字以内）" class="headerlink" title="简短的课程学习自我总结（400字以内）"></a>简短的课程学习自我总结（400字以内）</h4><ul>
+<li>请不用讲述与分析、设计、开发、管理无关的话题</li>
+<li>可以包括对同学帮助的致谢（同学姓名请用 github 昵称表示，不许出现真实姓名）</li>
+<li>0 ~ 400字，即没有这段也没关系</li>
+</ul>
+<p>在这次项目中担任了前端工程师和产品经理的任务吧，前期主要是负责分配各种文档给谁写的任务，编码过程中主要负责手机端的前端Vue代码编写以及和后端沟通接口问题，总的来说有些小成长吧，第一次担任管理类的角色总感觉有些力不从心（其实感觉个人更适合编码，毕竟后期主要都是在搬前端的砖），管理方面的话感觉逐渐感受到沟通还有项目规划的重要性吧，编码方面这次前端搬砖搬了挺多的吧，感觉加深了对MVC架构的理解，设计方面的话实际上就是参考框架和上课老师讲的一些设计模式设计的（我们用Django很自然地分了模块），至于分析方面，其实需求分析能力感觉个人还应该提升</p>
+<h4 id="PSP-2-1-统计表"><a href="#PSP-2-1-统计表" class="headerlink" title="PSP 2.1 统计表"></a>PSP 2.1 统计表</h4><h4 id="个人分支的-GIT-统计报告（不需要解释原因）-仅需要提交截图"><a href="#个人分支的-GIT-统计报告（不需要解释原因）-仅需要提交截图" class="headerlink" title="个人分支的 GIT 统计报告（不需要解释原因）- 仅需要提交截图"></a>个人分支的 GIT 统计报告（不需要解释原因）- 仅需要提交截图</h4><table>
+<thead>
+<tr>
+<th>PSP2.1</th>
+<th>Personal Software Process Stages</th>
+<th>Time(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>Planning<b></b></b></td>
+<td><b>计划<b></b></b></td>
+<td><b>5<b></b></b></td>
+</tr>
+<tr>
+<td>Estimate</td>
+<td>估计这个任务需要多少时间</td>
+<td>5</td>
+</tr>
+<tr>
+<td><b>Development<b></b></b></td>
+<td><b>开发<b></b></b></td>
+<td><b>80<b></b></b></td>
+</tr>
+<tr>
+<td>Analysis</td>
+<td>市场调研,需求分析</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Design Spec</td>
+<td>生成设计文档</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Design Review</td>
+<td>设计复审</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Coding Standard</td>
+<td>代码规范</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Design</td>
+<td>具体设计</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Coding</td>
+<td>具体编码</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Code Review</td>
+<td>代码复审</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Test</td>
+<td>测试</td>
+<td>10 </td>
+</tr>
+<tr>
+<td><b>Reporting<b></b></b></td>
+<td><b>报告<b></b></b></td>
+<td><b>15<b></b></b></td>
+</tr>
+<tr>
+<td>Test Report</td>
+<td>测试报告</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Size MeaSurement</td>
+<td>计算工作量</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Postmortem&amp;Process Improvement Plan</td>
+<td>时候总结,并提出过程改进计划</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h4 id="自认为最得意-或有价值-或有苦劳的工作清单，含简短说明（一句话）"><a href="#自认为最得意-或有价值-或有苦劳的工作清单，含简短说明（一句话）" class="headerlink" title="自认为最得意/或有价值/或有苦劳的工作清单，含简短说明（一句话）"></a>自认为最得意/或有价值/或有苦劳的工作清单，含简短说明（一句话）</h4><ul>
+<li>前后端交互，前端UI优化，前端bug修复(在对接接口过程中出现不少问题踩了不少坑，后期优化ui还有前端一些bug也是在做着)</li>
+<li>一些必要的开会沟通？（有时候群里交流说不清然后就一起到文化室）</li>
+</ul>
+<h4 id="个人的技术类、项目管理类博客清单（只需要名称与-url-）"><a href="#个人的技术类、项目管理类博客清单（只需要名称与-url-）" class="headerlink" title="个人的技术类、项目管理类博客清单（只需要名称与 url ）"></a>个人的技术类、项目管理类博客清单（只需要名称与 url ）</h4><ul>
+<li><a href="https://caijh23.github.io/2018/06/30/%E7%B3%BB%E5%88%86%E9%A1%B9%E7%9B%AE%E8%BF%90%E7%BB%B4%E6%97%A5%E8%AE%B0/" target="_blank" rel="noopener">安装ngnix时遇到一些依赖问题与vue router history mode在非服务器根目录下conf的配置</a></li>
+<li><a href="https://caijh23.github.io/2018/06/30/post-403/" target="_blank" rel="noopener">前端踩坑之post 403</a></li>
+<li><a href="https://caijh23.github.io/2018/06/30/%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%84%9F%E6%83%B3/" target="_blank" rel="noopener">一点团队沟通小感想</a></li>
+<li><a href="">关于dom的事件传播机制</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/30/finalReport/" data-id="cjj1knu950005i0nqbirb0h7y" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-关于项目管理的一些小感想" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/30/关于项目管理的一些小感想/" class="article-date">
@@ -94,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/30/关于项目管理的一些小感想/" data-id="cjj17s72y0009qqnqwqqt31ag" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/30/关于项目管理的一些小感想/" data-id="cjj1knuaj000ai0nqcq79wcsj" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -131,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/30/post-403/" data-id="cjj17s72u0008qqnqtdf0zppa" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/30/post-403/" data-id="cjj1knu9n0008i0nqf21hninj" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -188,7 +371,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/30/系分项目运维日记/" data-id="cjj17s733000aqqnqysq051vv" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/30/系分项目运维日记/" data-id="cjj1knuao000bi0nq35xadk9m" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -238,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/27/HomeworkLesson16/" data-id="cjj17s7210002qqnq4uplbm9c" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/27/HomeworkLesson16/" data-id="cjj1knucn000ei0nqqc993a5p" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -316,7 +499,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/02/HomeworkLesson13/" data-id="cjj17s7280003qqnqah91ebz0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/02/HomeworkLesson13/" data-id="cjj1knu9b0006i0nqxdr4reru" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -360,7 +543,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/14/HomeworkLesson9/" data-id="cjj17s74p000dqqnqajdmcobm" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/14/HomeworkLesson9/" data-id="cjj1knu900004i0nqmuetqggx" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -402,7 +585,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/04/HomeworkLesson8/" data-id="cjj17s72g0005qqnqzibbgb85" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/04/HomeworkLesson8/" data-id="cjj1knu8u0003i0nqqmmo12sa" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -456,180 +639,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/29/Homework-lesson7/" data-id="cjj17s7160000qqnq9d6i3vls" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HomeworkLesson6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/22/HomeworkLesson6/" class="article-date">
-  <time datetime="2018-04-22T03:00:03.000Z" itemprop="datePublished">2018-04-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/22/HomeworkLesson6/">HomeworkLesson6</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1、-用例建模"><a href="#1、-用例建模" class="headerlink" title="1、 用例建模"></a>1、 用例建模</h2><h4 id="a-阅读-Asg-RH-文档，绘制用例图。-按-Task1-要求，请使用工具-UMLet，截图格式务必是-png-并控制尺寸"><a href="#a-阅读-Asg-RH-文档，绘制用例图。-按-Task1-要求，请使用工具-UMLet，截图格式务必是-png-并控制尺寸" class="headerlink" title="a. 阅读 Asg_RH 文档，绘制用例图。 按 Task1 要求，请使用工具 UMLet，截图格式务必是 png 并控制尺寸"></a>a. 阅读 Asg_RH 文档，绘制用例图。 按 Task1 要求，请使用工具 UMLet，截图格式务必是 png 并控制尺寸</h4><p>答：阅读文档后绘制用例图如下<br><img src="/2018/04/22/HomeworkLesson6/hw_l6_pic1.png" alt="user_case_RH"></p>
-<h4 id="b-选择你熟悉的定旅馆在线服务系统（或移动-APP），如绘制用例图。并满足以下要求："><a href="#b-选择你熟悉的定旅馆在线服务系统（或移动-APP），如绘制用例图。并满足以下要求：" class="headerlink" title="b. 选择你熟悉的定旅馆在线服务系统（或移动 APP），如绘制用例图。并满足以下要求："></a>b. 选择你熟悉的定旅馆在线服务系统（或移动 APP），如绘制用例图。并满足以下要求：</h4><ul>
-<li>对比 Asg_RH 用例图，请用色彩标注出创新用例或子用例</li>
-<li>尽可能识别外部系统，并用色彩标注新的外部系统和服务</li>
-</ul>
-<p>答：绘制用例图如下，新的user case和新的外部系统已经用红色标出<br><img src="/2018/04/22/HomeworkLesson6/hw_l6_pic2.png" alt="new_user_case_RH"></p>
-<h4 id="c-对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法"><a href="#c-对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法" class="headerlink" title="c.对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法"></a>c.对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法</h4><p>答：相比Asg_RH里的用例和外部服务，现代的旅馆在线预定服务更加符合现代人的出行习惯和消费心理。在项目早期，可以t通过揣摩用户的消费心理，尽可能满足用户的需求，比方说用户更加期望同等的消费下获取更高的服务水平，更加习惯去熟悉的酒店，于是出现了favor hotel(收藏喜爱的酒店)的用例和按设施排序酒店等子用例。从用户角度出发，进行思考，以此出发找到新的业务和市场从而开发出新的功能。</p>
-<h4 id="d-请使用-SCRUM-方法，在（任务b）用例图基础上，编制某定旅馆开发的需求-（backlog）"><a href="#d-请使用-SCRUM-方法，在（任务b）用例图基础上，编制某定旅馆开发的需求-（backlog）" class="headerlink" title="d.请使用 SCRUM 方法，在（任务b）用例图基础上，编制某定旅馆开发的需求 （backlog）"></a>d.请使用 SCRUM 方法，在（任务b）用例图基础上，编制某定旅馆开发的需求 （backlog）</h4><table>
-<thead>
-<tr>
-<th style="text-align:center">ID</th>
-<th style="text-align:center">Name</th>
-<th style="text-align:center">Imp</th>
-<th style="text-align:center">Est</th>
-<th style="text-align:center">How to demo</th>
-<th style="text-align:center">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">find hotel</td>
-<td style="text-align:center">30</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">输入相关条件筛选酒店给用户选择</td>
-<td style="text-align:center">若某条件无法筛选忽略该条件</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">make reservation</td>
-<td style="text-align:center">40</td>
-<td style="text-align:center">15</td>
-<td style="text-align:center">用户选择酒店后,选择房间类型并确认订单</td>
-<td style="text-align:center">选择酒店后应该有各房间类型详细信息</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">manage basket</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">用户可以管理自己的订单</td>
-<td style="text-align:center">无</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">pay</td>
-<td style="text-align:center">15</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">支持各种常见的在线支付方式</td>
-<td style="text-align:center">调用各种外部支付系统</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">favor hotel</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">用户可以为自己喜欢的酒店标记favor</td>
-<td style="text-align:center">当用户下次使用时根据favor信息推荐</td>
-</tr>
-</tbody>
-</table>
-<h2 id="2、业务建模"><a href="#2、业务建模" class="headerlink" title="2、业务建模"></a>2、业务建模</h2><h4 id="a-在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。"><a href="#a-在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。" class="headerlink" title="a.在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。"></a>a.在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。</h4><p>答：找酒店活动图如下<br><br><img src="/2018/04/22/HomeworkLesson6/hw_l6_pic3.png" alt="RH_find_hotel"><br><br></p>
-<h5 id="利用流程图发现子用例的方法"><a href="#利用流程图发现子用例的方法" class="headerlink" title="利用流程图发现子用例的方法:"></a>利用流程图发现子用例的方法:</h5><p>在构建活动图的过程中，我们会注意到每个节点的业务的复杂性，并因此分解复杂的业务即可发现子用例，活动图还将各个用例之间的时间先后顺序呈现出来，可以借助活动图实现业务复用，合理安排业务，从而发现子用例。</p>
-<h4 id="b-选择你身边的银行-ATM，用活动图描绘取款业务流程"><a href="#b-选择你身边的银行-ATM，用活动图描绘取款业务流程" class="headerlink" title="b.选择你身边的银行 ATM，用活动图描绘取款业务流程"></a>b.选择你身边的银行 ATM，用活动图描绘取款业务流程</h4><p>答：活动图如下：<br><br><img src="/2018/04/22/HomeworkLesson6/hw_l6_pic4.png" alt="Process_get_cash"></p>
-<h4 id="c-查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例"><a href="#c-查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例" class="headerlink" title="c.查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例"></a>c.查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例</h4><p>答：泳道图如下：<br><br><img src="/2018/04/22/HomeworkLesson6/hw_l6_pic5.png" alt="Process_taobao"></p>
-<h5 id="淘宝网需要实现的系统用例有：评定是否接受请求，快速退款的预先支付，通知商家受理退款，介入买家卖家双方评定是否应该接受退款请求，接受到银行退款等。"><a href="#淘宝网需要实现的系统用例有：评定是否接受请求，快速退款的预先支付，通知商家受理退款，介入买家卖家双方评定是否应该接受退款请求，接受到银行退款等。" class="headerlink" title="淘宝网需要实现的系统用例有：评定是否接受请求，快速退款的预先支付，通知商家受理退款，介入买家卖家双方评定是否应该接受退款请求，接受到银行退款等。"></a>淘宝网需要实现的系统用例有：评定是否接受请求，快速退款的预先支付，通知商家受理退款，介入买家卖家双方评定是否应该接受退款请求，接受到银行退款等。</h5><h2 id="3、用例文本编写"><a href="#3、用例文本编写" class="headerlink" title="3、用例文本编写"></a>3、用例文本编写</h2><h4 id="在大作业基础上，分析三种用例文本的优点和缺点"><a href="#在大作业基础上，分析三种用例文本的优点和缺点" class="headerlink" title="在大作业基础上，分析三种用例文本的优点和缺点"></a>在大作业基础上，分析三种用例文本的优点和缺点</h4><ul>
-<li>摘要Brief<ul>
-<li>优点：编写方便用时短，简明扼要    </li>
-<li>缺点：不够详尽</li>
-</ul>
-</li>
-<li>非正式Casual<ul>
-<li>优点：简洁，段落格式，比摘要详细，覆盖了多个不同场景</li>
-<li>缺点：仍然不够详细全面</li>
-</ul>
-</li>
-<li>详述fully<ul>
-<li>优点：有严格的书写格式规范，考虑全面</li>
-<li>缺点：费时，书写起来很复杂</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/22/HomeworkLesson6/" data-id="cjj17s72c0004qqnqoug72z3s" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Homework-lesson5" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/14/Homework-lesson5/" class="article-date">
-  <time datetime="2018-04-14T01:46:19.000Z" itemprop="datePublished">2018-04-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/14/Homework-lesson5/">Homework_lesson5</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-作业要求"><a href="#1-作业要求" class="headerlink" title="1.作业要求"></a>1.作业要求</h2><p>每人至少一篇 技术学习报告 或 工具使用方法 或 项目工作经验总结 或 其他值得分享的项目知识。如果你已有博客，请在标题上做连接。<br><br>个人大概用了一下下面几个工具，这里稍微介绍一下：</p>
-<ul>
-<li>umlet工具绘制uml图或者用例图</li>
-<li>使用api blueprint编写api文档<h2 id="2-umlet工具的使用"><a href="#2-umlet工具的使用" class="headerlink" title="2.umlet工具的使用"></a>2.umlet工具的使用</h2></li>
-<li>安装</li>
-</ul>
-<p>ubuntu环境下比较方便直接输入以下命令即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt intsall umlet</span><br></pre></td></tr></table></figure></p>
-<p>安装完后在控制台上输入umlet就可以打开，可以把它锁定到任务栏方便打开。</p>
-<p>windows平台的话去官网下一下安装包顺便配置一下相关的jdk即可。</p>
-<ul>
-<li>使用umlet绘图</li>
-</ul>
-<p>首先在右上角可以选择绘制的图的类型，比如这里我选择了用例图<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic1.png" alt="pic1"><br>然后就可以看到下方各种相关图形<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic2.png" alt="pic2"><br>双击图形（或者直接拖到左边，箭头只能双击）即可在左边的编辑框内编辑，点击在左边编辑框内的图形，则可以在右下角的方框内编写该图形相关属性，比如我编写了一个名为example的user case并且把它的背景颜色置为红色。<br><br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic3.png" alt="pic3"><br><br><br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic4.png" alt="pic4"><br><br>编辑完后最后保存即可，umlet会生成一个.uxf文件下次可以打开。</p>
-<h2 id="3-使用api-blueprint编写api文档"><a href="#3-使用api-blueprint编写api文档" class="headerlink" title="3.使用api blueprint编写api文档"></a>3.使用api blueprint编写api文档</h2><p>api blueprint可以用来编写http api文档，并且可以使用模拟服务器方便前后端同时开发，这里主要说一下怎么连到github上你加入的组织(连到个人仓库按照官网指示一步步进入就可以了)</p>
-<ul>
-<li>关联github账号<br>首先去官网按照官网提示一步步将github账号关联上去即可，这边是官网链接<br><a href="https://apiary.io/" target="_blank" rel="noopener">https://apiary.io/</a></li>
-<li>连接到你加入的组织<br>首先要确保你给了该应用权限，在github的setting的application选项里面我们可以看到<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic5.png" alt="pic5"><br>进去后你可以看到如下界面则你已经给了apiary足够权限，那么你只要在下面的Organization access给你要连接到的组织选项点击发送一份邮件给组织的owner让他确认后你就可以连接上去了<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic6.png" alt="pic6"><br>然后在apiary官网那边你就可以选择到该organization内的repo了。<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic7.png" alt="pic7"><br>更多详细的文档可以看官方的这份文档<a href="https://help.apiary.io/tools/troubleshooting-github/#connecting-organization-repository" target="_blank" rel="noopener">https://help.apiary.io/tools/troubleshooting-github/#connecting-organization-repository</a></li>
-<li>至于编写文档其实就跟写markdown差不多，参考一下文档就可以了，编写完后访问<a href="https://xxxx.docs.apiary.io" target="_blank" rel="noopener">https://xxxx.docs.apiary.io</a> (其中xxxx是你编写文档的时候写的host) 就可以看到一份文档，点击api名称就可以看到详情，选择mock server就可以看到对应的api地址，前后端就可以同时开始开发了。<br><img src="/2018/04/14/Homework-lesson5/hw_l5_pic8.png" alt="pic8"></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/14/Homework-lesson5/" data-id="cjj17s74m000cqqnq0p4im7l0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/29/Homework-lesson7/" data-id="cjj1knu8f0002i0nq38ejs8eh" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -675,6 +685,14 @@
       <ul>
         
           <li>
+            <a href="/2018/06/30/关于dom的事件传播机制/">关于dom的事件传播机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/30/finalReport/">finalReport</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/30/关于项目管理的一些小感想/">关于项目管理的一些小感想</a>
           </li>
         
@@ -684,14 +702,6 @@
         
           <li>
             <a href="/2018/06/30/系分项目运维日记/">系分项目运维日记</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/HomeworkLesson16/">HomeworkLesson16</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/02/HomeworkLesson13/">HomeworkLesson13</a>
           </li>
         
       </ul>
