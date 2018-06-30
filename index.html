@@ -61,6 +61,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-post-403" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/30/post-403/" class="article-date">
+  <time datetime="2018-06-30T09:04:08.000Z" itemprop="datePublished">2018-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/30/post-403/">post 403</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前端psot返回403（CSRF-Failed-CSRF-token-missing-or-incorrect）"><a href="#前端psot返回403（CSRF-Failed-CSRF-token-missing-or-incorrect）" class="headerlink" title="前端psot返回403（CSRF Failed: CSRF token missing or incorrect）"></a>前端psot返回403（CSRF Failed: CSRF token missing or incorrect）</h2><p>情景：在Vue项目中用axios发送post请求返回标题所述的403<br>原因：这是OAuth 2.0中为了防止第三方网站攻击加上的字段，从document.cookie里面将对应字段取出加在request header里发出post即可<br>实现代码如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getCookie = <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> value = <span class="string">'; '</span> + <span class="built_in">document</span>.cookie</span><br><span class="line">  <span class="keyword">let</span> parts = value.split(<span class="string">'; '</span> + name + <span class="string">'='</span>)</span><br><span class="line">  <span class="keyword">if</span> (parts.length === <span class="number">2</span>) <span class="keyword">return</span> parts.pop().split(<span class="string">';'</span>).shift()</span><br><span class="line">&#125;</span><br><span class="line">axios.post(<span class="string">'/api/wxLogin/'</span>, params, &#123;<span class="attr">headers</span>: &#123;<span class="string">'X-CSRFToken'</span>: getCookie(<span class="string">'csrftoken'</span>)&#125;&#125;)</span><br><span class="line"><span class="comment">//差不多就这么写把后面的回调函数就不贴了</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/30/post-403/" data-id="cjj16rhvk0008pynq4qsb7x09" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-系分项目运维日记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/30/系分项目运维日记/" class="article-date">
@@ -108,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/30/系分项目运维日记/" data-id="cjj169fcq0008d0nq1aqgubym" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/30/系分项目运维日记/" data-id="cjj16rhwk000apynqy5hplund" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -158,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/27/HomeworkLesson16/" data-id="cjj169fbq0003d0nqgyd6r1t3" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/27/HomeworkLesson16/" data-id="cjj16rhtr0002pynqfk4wiglw" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -236,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/02/HomeworkLesson13/" data-id="cjj169fcj0007d0nqsd2vnorg" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/02/HomeworkLesson13/" data-id="cjj16rhth0001pynqe19zyhcq" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -280,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/14/HomeworkLesson9/" data-id="cjj169fle000ad0nqn1hgybwm" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/14/HomeworkLesson9/" data-id="cjj16rhwo000bpynqkvgm02vl" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -322,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/04/HomeworkLesson8/" data-id="cjj169fcc0006d0nq2p0wa74i" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/04/HomeworkLesson8/" data-id="cjj16rhui0004pynqwx8zrs73" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -376,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/29/Homework-lesson7/" data-id="cjj169fbx0004d0nqn5mv3pct" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/29/Homework-lesson7/" data-id="cjj16rhrt0000pynqem95n6v6" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -494,7 +531,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/22/HomeworkLesson6/" data-id="cjj169fc50005d0nq88yvgbi9" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/22/HomeworkLesson6/" data-id="cjj16rhty0003pynqr5b1e2ad" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -549,7 +586,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/14/Homework-lesson5/" data-id="cjj169fax0001d0nqu4v015jp" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/14/Homework-lesson5/" data-id="cjj16ri5p000cpynqhdhgnhrl" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -594,101 +631,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/31/hello-world/" data-id="cjj169fnw000bd0nq5dimqz5e" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HomeWork-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/18/HomeWork-2/" class="article-date">
-  <time datetime="2018-03-18T01:24:57.000Z" itemprop="datePublished">2018-03-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/18/HomeWork-2/">HomeWork 2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1、简答题"><a href="#1、简答题" class="headerlink" title="1、简答题"></a>1、简答题</h2><h4 id="简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点。"><a href="#简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点。" class="headerlink" title="简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点。"></a>简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点。</h4><ul>
-<li>瀑布模型<ul>
-<li>优点 ： 有利于大型软件开发过程中组织管理；</li>
-<li>缺点 ： 开发过程一般不能逆转，否则代价太大；实际项目的开发很难严格按照该模型进行；客户往往很难清楚地给出所有需求，而该模型却要求如此；软件的实际情况必须等到项目开发后期才能看到，这要求用户要有足够的耐心；</li>
-</ul>
-</li>
-<li>增量模型<ul>
-<li>优点 ： 采用增量模型的优点是人员分配灵活，刚开始不用投入大量人力资源；如果核心产品很受欢迎，则可增加人力实现下一个增量；可先发布部分功能给客户，对客户起到镇定剂作用；</li>
-<li>缺点 ： 并行开发构件有可能遇到不能集成的风险，软件必须具备开放式的体系结构；增量模型的灵活性可以使其适应变化的能力大大优于瀑布模型，也很容易退化成边做边改模型，从而使软件的控制失去整体性；</li>
-</ul>
-</li>
-<li>螺旋模型<ul>
-<li>优点 ： 设计上的灵活性，可以在项目的各个阶段进行变更；以小的分段来构建大型系统，使成本计算变得简单容易；客户始终参与每个阶段的开发，保证了项目不偏离正确方向以及项目的可控性；随着项目推进，客户始终掌握项目的最新信息，从而客户能够有效地和管理层交互；</li>
-<li>缺点 ： 采用螺旋模型需要具有相当丰富的风险评估经验和专业知识，在风险较大的项目开发中，如果未能够及时标识风险，势必造成重大损失；过多的迭代次数会增加开发成本，延迟提交时间。<h4 id="简述-UP-的三大特点，其中哪些内容体现了用户驱动的开发，哪些内容体现风险驱动的开发？"><a href="#简述-UP-的三大特点，其中哪些内容体现了用户驱动的开发，哪些内容体现风险驱动的开发？" class="headerlink" title="简述 UP 的三大特点，其中哪些内容体现了用户驱动的开发，哪些内容体现风险驱动的开发？"></a>简述 UP 的三大特点，其中哪些内容体现了用户驱动的开发，哪些内容体现风险驱动的开发？</h4>up的三大特点如下：</li>
-</ul>
-</li>
-</ul>
-<ol>
-<li>迭代式的增量开发：允许用不完整的，不完善的知识开发，并在开发的过程中不断地完善；</li>
-<li>用例驱动：指开发团队使用通过代码和测试收集需求的用例</li>
-<li>以系统架构为中心：为整个项目建立架构，包括商业建模、需求分析与设计、具体实现、以及测试与维护的各个模块。 </li>
-</ol>
-<p>其中，用例驱动和以系统架构为中心体现了用户驱动的开发，迭代式的增量开发体现了风险驱动开发。</p>
-<h4 id="UP-四个阶段的划分准则是什么？关键的里程碑是什么？"><a href="#UP-四个阶段的划分准则是什么？关键的里程碑是什么？" class="headerlink" title="UP 四个阶段的划分准则是什么？关键的里程碑是什么？"></a>UP 四个阶段的划分准则是什么？关键的里程碑是什么？</h4><ol>
-<li>初始阶段：</li>
-</ol>
-<ul>
-<li>划分准则：体现了风险驱动，满足用户需求，并不试图获取全部需求、以及详细的计划，而只是详细识别出最重要的用例并加以详细描述。制定一个项目计划和第一次迭代计划。也会考虑初步的可行性方案。</li>
-<li>里程碑 ： 生命周期目标 (Lifecycle Objective) 里程碑,包括一些重要的文档,如:项目构想 (Vision)、原始用例模型、原始业务风险评估、一个或者多个原型、原始业务案例等。需要对这些文档进行评审,以确定正确理解用例需求、项目风险评估合理、阶段计划可行等。</li>
-</ul>
-<ol>
-<li>细化阶段：</li>
-</ol>
-<ul>
-<li>划分准则：体现了风险驱动,架构为中心，并不只是做设计，会实现最重要的部分用例，形成可执行的架构，并可以测试，活动包括了分析、设计、编码、测试。迭代实现最重要的用例。迭代的开发，进化式需求，化解需求变更对架构的影响的风险，体现了持续化解风险的思想，并确保满足用户的需求。产生一个可执行的架构，体现了把注意力放在可执行的软件上的思想，体现了在早期确定一个可执行的架构的思想，可测试架构、测试体现了持续验证软件质量的思想。</li>
-<li>里程碑：生命周期体系结构 (Lifecycle Architecture) 里程碑。包括风险分析文档、软件体系结构基线、项目计划、可执行的进化原型、初始版本的用户手册等。通过评审确定软件体系结构已经稳定、高风险的业务需求和技术机制已经解决、修订的项目计划可行等。</li>
-</ul>
-<ol>
-<li>构建阶段：</li>
-</ol>
-<ul>
-<li>划分准则：体现了风险驱动，构建阶段除了编码也会有建模、分析、设计，也会有测试。迭代构建。保证满足用户需求。测试持续验证软件质量。</li>
-<li>里程碑：初始运行能力 (Initial Operational Capability) 里程碑。包括可以运行的软件产品、用户手册等,它决定了产品是否可以在测试环境中进行部署。此刻,要确定软件、环境、用户是否可以开始系统的运行。</li>
-</ul>
-<ol>
-<li>产品化阶段/移交阶段：</li>
-</ol>
-<ul>
-<li>划分准则：确保软件对最终用户是可用的。产品化阶段可以基于用户反馈的少量调整，跨越几次迭代，包括为发布做准备的产品测试。 </li>
-<li>里程碑：产品发布 (Product Release) 里程碑。确定最终目标是否实现,是否应该开始产品下一个版本的另一个开发周期。在一些情况下这个里程碑可能与下一个周期的初始阶段的相重合。<h4 id="IT-项目管理中，“工期、质量、范围-内容”-三个元素中，在合同固定条件下，为什么说“范围-内容”是项目团队是易于控制的？"><a href="#IT-项目管理中，“工期、质量、范围-内容”-三个元素中，在合同固定条件下，为什么说“范围-内容”是项目团队是易于控制的？" class="headerlink" title="IT 项目管理中，“工期、质量、范围/内容” 三个元素中，在合同固定条件下，为什么说“范围/内容”是项目团队是易于控制的？"></a>IT 项目管理中，“工期、质量、范围/内容” 三个元素中，在合同固定条件下，为什么说“范围/内容”是项目团队是易于控制的？</h4>工期是合同里规定好的，项目的每个阶段也都是有时间规定的，不能轻易更改。客户在合同中也规定好了项目的验收条件，因此质量也是不由团队控制的。只有范围/内容是由项目团队完成的，所以这是他们易于控制的。<h4 id="为什么说，UP-为企业按固定节奏生产、固定周期发布软件产品提供了依据？"><a href="#为什么说，UP-为企业按固定节奏生产、固定周期发布软件产品提供了依据？" class="headerlink" title="为什么说，UP 为企业按固定节奏生产、固定周期发布软件产品提供了依据？"></a>为什么说，UP 为企业按固定节奏生产、固定周期发布软件产品提供了依据？</h4>UP是一种融合了喷泉模型和增量模型的综合生命周期模型。每一次迭代就是为了完成一定阶段性小目标而从事的一系列开发活动。UP把开发分为多个循环，每个循环分为四个阶段，能够确保每个阶段完成相应的任务，完成一定的里程碑，有利于促进整个周期的节奏固定。。<h2 id="2、项目管理使用"><a href="#2、项目管理使用" class="headerlink" title="2、项目管理使用"></a>2、项目管理使用</h2></li>
-<li>使用截图工具（png格式输出），展现你团队的任务 Kanban，请注意以下要求<ul>
-<li>每个人的任务是明确的。即一周后可以看到具体成果</li>
-<li>每个人的任务是1-2项。</li>
-<li>至少包含一个团队活动任务</li>
-</ul>
-</li>
-</ul>
-<p>如下图所示：<br><br><img src="/2018/03/18/HomeWork-2/towerCut.png" alt="Alt text"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/HomeWork-2/" data-id="cjj169fb70002d0nq97pshqsi" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/31/hello-world/" data-id="cjj16rhvr0009pynqh4izm522" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -734,6 +677,10 @@
       <ul>
         
           <li>
+            <a href="/2018/06/30/post-403/">post 403</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/30/系分项目运维日记/">系分项目运维日记</a>
           </li>
         
@@ -747,10 +694,6 @@
         
           <li>
             <a href="/2018/05/14/HomeworkLesson9/">HomeworkLesson9</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/04/HomeworkLesson8/">HomeworkLesson8</a>
           </li>
         
       </ul>
