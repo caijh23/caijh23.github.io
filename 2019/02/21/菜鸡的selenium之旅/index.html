@@ -7,21 +7,21 @@
   
   <title>菜鸡的selenium之旅 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入">
+  <meta name="description" content="需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入并搜">
 <meta property="og:type" content="article">
 <meta property="og:title" content="菜鸡的selenium之旅">
 <meta property="og:url" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入">
+<meta property="og:description" content="需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入并搜">
 <meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/homePage.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/searchPage.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/comPage.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/CEOpage.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/chromeVersion.png">
-<meta property="og:updated_time" content="2019-02-21T15:40:36.383Z">
+<meta property="og:updated_time" content="2019-02-21T15:44:19.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="菜鸡的selenium之旅">
-<meta name="twitter:description" content="一、需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入">
+<meta name="twitter:description" content="需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入并搜">
 <meta name="twitter:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/homePage.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -91,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、需求"><a href="#一、需求" class="headerlink" title="一、需求"></a>一、需求</h4><p>(注：以下举例不包含任何恶意行为，如有不适请予以指正)</p>
+        <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>(注：以下举例不包含任何恶意行为，如有不适请予以指正)</p>
 <p>前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021</p>
 <p><img src="/2019/02/21/菜鸡的selenium之旅/homePage.png" alt="home_page"></p>
 <p>然后打开一个新的页面，这里我们点击进入公司页面</p>
@@ -101,19 +101,19 @@
 <p>之后进入公司高管页面</p>
 <p><img src="/2019/02/21/菜鸡的selenium之旅/CEOpage.png" alt="ceo_page"></p>
 <p>再之后就是搜索到对应的姓名点击链接进入并搜集需要的信息</p>
-<h4 id="初次实现"><a href="#初次实现" class="headerlink" title="初次实现"></a>初次实现</h4><p>起初是打算用urllib之类的很底层的库来模拟get和post之类的过程而不打算使用浏览器，后来看网站的网络请求过程比较复杂于是就入坑了selenium</p>
+<h3 id="初次实现"><a href="#初次实现" class="headerlink" title="初次实现"></a>初次实现</h3><p>起初是打算用urllib之类的很底层的库来模拟get和post之类的过程而不打算使用浏览器，后来看网站的网络请求过程比较复杂于是就入坑了selenium</p>
 <p>第一次使用selenium，由于是在家里只能百度搜索（吐槽下百度各种广告和搜不到）还有各种原因看不了官网文档，于是跟着网上的大部分博客写了个简单粗暴的版本</p>
 <p>首先selenium的浏览器可以选择phantomjs,chrome,firefox,这里由于不想折腾太多环境问题，我就选择了chrome</p>
-<h5 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h5><p>首先查看chrome版本,在浏览器标签栏输入chrome://version查看浏览器版本信息</p>
+<h4 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h4><p>首先查看chrome版本,在浏览器标签栏输入chrome://version查看浏览器版本信息</p>
 <p><img src="/2019/02/21/菜鸡的selenium之旅/chromeVersion.png" alt="chrome_version"></p>
-<p>然后对应如下表格找到对应chromeDriver版本下载安装<br>|chromeDriver版本|chrome版本|<br>|-|-|<br>|v2.43|v69-71|<br>|v2.42|v68-70|<br>|v2.41|v67-69|<br>|v2.40|v66-68|<br>|v2.39|v66-68|<br>|v2.38|v65-67|<br>|v2.37|v64-66|<br>|v2.36|v63-65|<br>|v2.35|v62-64|<br>|v2.34|v61-63|<br>|v2.33|v60-62|<br>|v2.32|v59-61|<br>|v2.31|v58-60|<br>|v2.30|v58-60|<br>|v2.29|v56-58|<br>|v2.28|v55-57|<br>|v2.27|v54-56|<br>|v2.26|v53-55|<br>|v2.25|v53-55|<br>|v2.24|v52-54|<br>|v2.23|v51-53|<br>|v2.22|v49-52|<br>|v2.21|v46-50|<br>|v2.20|v43-48|<br>|v2.19|v43-47|<br>|v2.18|v43-46|<br>|v2.17|v42-43|<br>|v2.13|v42-45|<br>|v2.15|v40-43|<br>|v2.14|v39-42|<br>|v2.13|v38-41|<br>|v2.12|v36-40|<br>|v2.11|v36-40|<br>|v2.10|v33-36|<br>|v2.9|v31-34|<br>|v2.8|v30-33|<br>|v2.7|v30-33|<br>|v2.6|v29-32|<br>|v2.5|v29-32|<br>|v2.4|v29-32|</p>
+<p>然后对应如下表格找到对应chromeDriver版本下载安装<br>|chromeDriver版本|chrome版本|<br>|:-:|:-:|<br>|v2.43|v69-71|<br>|v2.42|v68-70|<br>|v2.41|v67-69|<br>|v2.40|v66-68|<br>|v2.39|v66-68|<br>|v2.38|v65-67|<br>|v2.37|v64-66|<br>|v2.36|v63-65|<br>|v2.35|v62-64|<br>|v2.34|v61-63|<br>|v2.33|v60-62|<br>|v2.32|v59-61|<br>|v2.31|v58-60|<br>|v2.30|v58-60|<br>|v2.29|v56-58|<br>|v2.28|v55-57|<br>|v2.27|v54-56|<br>|v2.26|v53-55|<br>|v2.25|v53-55|<br>|v2.24|v52-54|<br>|v2.23|v51-53|<br>|v2.22|v49-52|<br>|v2.21|v46-50|<br>|v2.20|v43-48|<br>|v2.19|v43-47|<br>|v2.18|v43-46|<br>|v2.17|v42-43|<br>|v2.13|v42-45|<br>|v2.15|v40-43|<br>|v2.14|v39-42|<br>|v2.13|v38-41|<br>|v2.12|v36-40|<br>|v2.11|v36-40|<br>|v2.10|v33-36|<br>|v2.9|v31-34|<br>|v2.8|v30-33|<br>|v2.7|v30-33|<br>|v2.6|v29-32|<br>|v2.5|v29-32|<br>|v2.4|v29-32|</p>
 <p>这边是chromedriver的链接</p>
 <ul>
 <li><a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">官网</a></li>
 <li><a href="http://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">淘宝源</a></li>
 </ul>
 <p>接下来安装selenium(我的机子python2和3都装了，只装了３的可以只敲pip)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install selenium</span><br></pre></td></tr></table></figure></p>
-<h5 id="初次搬砖"><a href="#初次搬砖" class="headerlink" title="初次搬砖"></a>初次搬砖</h5><p>selenium的API参考<a href="https://seleniumhq.github.io/selenium/docs/api/py/api.html" target="_blank" rel="noopener">官方说明</a></p>
+<h4 id="初次搬砖"><a href="#初次搬砖" class="headerlink" title="初次搬砖"></a>初次搬砖</h4><p>selenium的API参考<a href="https://seleniumhq.github.io/selenium/docs/api/py/api.html" target="_blank" rel="noopener">官方说明</a></p>
 <p>这边列举下常用接口(转自<a href="https://www.cnblogs.com/yufeihlf/p/5764807.html" target="_blank" rel="noopener">https://www.cnblogs.com/yufeihlf/p/5764807.html</a>)</p>
 <p>可用driver:</p>
 <ul>
@@ -166,7 +166,7 @@
 <p>这里有一个用于切换tab页面的可以看一下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switch_handle</span><span class="params">(handles,current_handle)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> handle <span class="keyword">in</span> handles:</span><br><span class="line">        <span class="keyword">if</span> handle != current_handle:</span><br><span class="line">            <span class="keyword">return</span> handle</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switch_page</span><span class="params">(current_handle,handles,new_handle,browser)</span>:</span></span><br><span class="line">    current_handle = browser.current_window_handle</span><br><span class="line">    handles = browser.window_handles</span><br><span class="line">    new_handle = switch_handle(handles,current_handle)</span><br><span class="line">    browser.close()</span><br><span class="line">    browser.switch_to.window(new_handle)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
 <p>第一次搬砖过程中由于是第一次入坑selenium而且有点小偷懒，于是GUI也没关，就用上面那个步骤把输入文件读入后for了一下暴力解决，结果显而易见龟速爬虫，于是后面朋友还是类似操作的爬虫要求我进行了优化</p>
-<h5 id="进行优化"><a href="#进行优化" class="headerlink" title="进行优化"></a>进行优化</h5><p>由于初次搬砖结果一般般,然后我开始考虑优化，首先一个是使用了GUI然后速度太慢，第二个由于等待加载过程什么也没做cpu空闲着可以考虑用多线程优化,第三个通过分析网页链接可以知道公司高管界面的url有一定规律，直接get这个界面省去前面的操作</p>
+<h4 id="进行优化"><a href="#进行优化" class="headerlink" title="进行优化"></a>进行优化</h4><p>由于初次搬砖结果一般般,然后我开始考虑优化，首先一个是使用了GUI然后速度太慢，第二个由于等待加载过程什么也没做cpu空闲着可以考虑用多线程优化,第三个通过分析网页链接可以知道公司高管界面的url有一定规律，直接get这个界面省去前面的操作</p>
 <p>关于无头浏览器，一开始我是去直接安装phantomjs但是遇到各种坑后面发现selenium后面不支持phantomjs了，有些接口是没维护的，于是后来使用了chrome的无头模式，也不会慢多少</p>
 <p>无头模式可以在生成driver对象的时候填入chrome_options进行设置，下面代码顺便设置了一些service_args用来禁用一些图片加载和忽略一些网络错误以及启用浏览器cache</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chrome_options = Options()</span><br><span class="line">chrome_options.add_argument(<span class="string">"--headless"</span>)</span><br><span class="line">service_args = [<span class="string">'--ignore-ssl-errors=true'</span>,<span class="string">'--ssl-protocol=TLSv1'</span>,<span class="string">'--load-images=no'</span>,<span class="string">'--disk-cache=yes'</span>]</span><br><span class="line">browser = webdriver.Chrome(service_args=service_args,chrome_options=chrome_options)</span><br></pre></td></tr></table></figure>
@@ -176,7 +176,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPage</span><span class="params">(url)</span>:</span></span><br><span class="line">    browser = self.q_chrome.get()</span><br><span class="line">    browser.get(url)</span><br><span class="line">    ... <span class="comment"># 一些爬虫操作抓取信息</span></span><br><span class="line">    self.q_chrome.put(browser)</span><br></pre></td></tr></table></figure>
 <p>最后是main里面创建多线程</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cur = conChrome()</span><br><span class="line">conChrome.chrome_max = <span class="number">3</span></span><br><span class="line">cur.open_chrome()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'chrome num is '</span>,cur.q_chrome.qsize())</span><br><span class="line">th = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> input:</span><br><span class="line">    t = threading.Thread(target=cur.getPage,args=(i,))</span><br><span class="line">    th.append(t)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> th:</span><br><span class="line">    i.start()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> th:</span><br><span class="line">    i.join()</span><br><span class="line"></span><br><span class="line">cur.close_chrome()</span><br></pre></td></tr></table></figure>
-<h4 id="源码链接"><a href="#源码链接" class="headerlink" title="源码链接"></a>源码链接</h4><ul>
+<h3 id="源码链接"><a href="#源码链接" class="headerlink" title="源码链接"></a>源码链接</h3><ul>
 <li><a href="https://github.com/caijh23/SpiderSinaFinance" target="_blank" rel="noopener">源码</a></li>
 </ul>
 
