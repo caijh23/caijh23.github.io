@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>菜鸡的selenium之旅 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="菜鸡的selenium之旅">
+<meta property="og:url" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入">
+<meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/homePage.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/searchPage.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/comPage.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/CEOpage.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/chromeVersion.png">
+<meta property="og:updated_time" content="2019-02-21T15:40:36.383Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="菜鸡的selenium之旅">
+<meta name="twitter:description" content="一、需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/homePage.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-菜鸡的selenium之旅" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/21/菜鸡的selenium之旅/" class="article-date">
+  <time datetime="2019-02-21T13:07:21.000Z" itemprop="datePublished">2019-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      菜鸡的selenium之旅
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、需求"><a href="#一、需求" class="headerlink" title="一、需求"></a>一、需求</h4><p>(注：以下举例不包含任何恶意行为，如有不适请予以指正)</p>
+<p>前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021</p>
+<p><img src="/2019/02/21/菜鸡的selenium之旅/homePage.png" alt="home_page"></p>
+<p>然后打开一个新的页面，这里我们点击进入公司页面</p>
+<p><img src="/2019/02/21/菜鸡的selenium之旅/searchPage.png" alt="search_page"></p>
+<p>这里公司界面左下方我们找到公司高管的链接</p>
+<p><img src="/2019/02/21/菜鸡的selenium之旅/comPage.png" alt="com_page"></p>
+<p>之后进入公司高管页面</p>
+<p><img src="/2019/02/21/菜鸡的selenium之旅/CEOpage.png" alt="ceo_page"></p>
+<p>再之后就是搜索到对应的姓名点击链接进入并搜集需要的信息</p>
+<h4 id="初次实现"><a href="#初次实现" class="headerlink" title="初次实现"></a>初次实现</h4><p>起初是打算用urllib之类的很底层的库来模拟get和post之类的过程而不打算使用浏览器，后来看网站的网络请求过程比较复杂于是就入坑了selenium</p>
+<p>第一次使用selenium，由于是在家里只能百度搜索（吐槽下百度各种广告和搜不到）还有各种原因看不了官网文档，于是跟着网上的大部分博客写了个简单粗暴的版本</p>
+<p>首先selenium的浏览器可以选择phantomjs,chrome,firefox,这里由于不想折腾太多环境问题，我就选择了chrome</p>
+<h5 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h5><p>首先查看chrome版本,在浏览器标签栏输入chrome://version查看浏览器版本信息</p>
+<p><img src="/2019/02/21/菜鸡的selenium之旅/chromeVersion.png" alt="chrome_version"></p>
+<p>然后对应如下表格找到对应chromeDriver版本下载安装<br>|chromeDriver版本|chrome版本|<br>|-|-|<br>|v2.43|v69-71|<br>|v2.42|v68-70|<br>|v2.41|v67-69|<br>|v2.40|v66-68|<br>|v2.39|v66-68|<br>|v2.38|v65-67|<br>|v2.37|v64-66|<br>|v2.36|v63-65|<br>|v2.35|v62-64|<br>|v2.34|v61-63|<br>|v2.33|v60-62|<br>|v2.32|v59-61|<br>|v2.31|v58-60|<br>|v2.30|v58-60|<br>|v2.29|v56-58|<br>|v2.28|v55-57|<br>|v2.27|v54-56|<br>|v2.26|v53-55|<br>|v2.25|v53-55|<br>|v2.24|v52-54|<br>|v2.23|v51-53|<br>|v2.22|v49-52|<br>|v2.21|v46-50|<br>|v2.20|v43-48|<br>|v2.19|v43-47|<br>|v2.18|v43-46|<br>|v2.17|v42-43|<br>|v2.13|v42-45|<br>|v2.15|v40-43|<br>|v2.14|v39-42|<br>|v2.13|v38-41|<br>|v2.12|v36-40|<br>|v2.11|v36-40|<br>|v2.10|v33-36|<br>|v2.9|v31-34|<br>|v2.8|v30-33|<br>|v2.7|v30-33|<br>|v2.6|v29-32|<br>|v2.5|v29-32|<br>|v2.4|v29-32|</p>
+<p>这边是chromedriver的链接</p>
+<ul>
+<li><a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">官网</a></li>
+<li><a href="http://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">淘宝源</a></li>
+</ul>
+<p>接下来安装selenium(我的机子python2和3都装了，只装了３的可以只敲pip)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install selenium</span><br></pre></td></tr></table></figure></p>
+<h5 id="初次搬砖"><a href="#初次搬砖" class="headerlink" title="初次搬砖"></a>初次搬砖</h5><p>selenium的API参考<a href="https://seleniumhq.github.io/selenium/docs/api/py/api.html" target="_blank" rel="noopener">官方说明</a></p>
+<p>这边列举下常用接口(转自<a href="https://www.cnblogs.com/yufeihlf/p/5764807.html" target="_blank" rel="noopener">https://www.cnblogs.com/yufeihlf/p/5764807.html</a>)</p>
+<p>可用driver:</p>
+<ul>
+<li>phantomjs</li>
+<li>chrome</li>
+<li>firefox</li>
+</ul>
+<p>常用变量:</p>
+<ul>
+<li>driver.current_url：用于获得当前页面的URL</li>
+<li>driver.title：用于获取当前页面的标题</li>
+<li>driver.page_source:用于获取页面html源代码</li>
+<li>driver.current_window_handle:用于获取当前窗口句柄</li>
+<li>driver.window_handles:用于获取所有窗口句柄</li>
+</ul>
+<p>常用函数：</p>
+<ul>
+<li>driver.find_element*():定位元素</li>
+<li>driver.get(url):浏览器加载url。<br>实例：driver.get(“http//:<a href="http://www.baidu.com&quot;" target="_blank" rel="noopener">www.baidu.com&quot;</a>)</li>
+<li>driver.forward()：浏览器向前（点击向前按钮）。</li>
+<li>driver.back()：浏览器向后（点击向后按钮）。</li>
+<li>driver.refresh()：浏览器刷新（点击刷新按钮）。</li>
+<li>driver.close()：关闭当前窗口，或最后打开的窗口。</li>
+<li>driver.quit():关闭所有关联窗口，并且安全关闭session。</li>
+<li>driver.maximize_window():最大化浏览器窗口。</li>
+<li>driver.set_window_size(宽，高)：设置浏览器窗口大小。</li>
+<li>driver.get_window_size()：获取当前窗口的长和宽。</li>
+<li>driver.get_window_position()：获取当前窗口坐标。</li>
+<li>driver.get_screenshot_as_file(filename):截取当前窗口。<br>实例：driver.get_screenshot_as_file(‘D:/selenium/image/baidu.jpg’)</li>
+<li>driver.implicitly_wait(秒)：隐式等待，通过一定的时长等待页面上某一元素加载完成。<br>若提前定位到元素，则继续执行。若超过时间未加载出，则抛出NoSuchElementException异常。<br>实例：driver.implicitly_wait(10) #等待10秒</li>
+<li>driver.switch_to_frame(id或name属性值)：切换到新表单(同一窗口)。若无id或属性值，可先通过xpath定位到iframe，再将值传给switch_to_frame()</li>
+<li>driver.switch_to.parent_content():跳出当前一级表单。该方法默认对应于离它最近的switch_to.frame()方法。</li>
+<li>driver.switch_to.default_content():跳回最外层的页面。</li>
+<li>driver.switch_to_window(窗口句柄)：切换到新窗口。</li>
+<li>driver.switch_to.window(窗口句柄):切换到新窗口。</li>
+<li>driver.switch_to_alert():警告框处理。处理JavaScript所生成的alert,confirm,prompt.</li>
+<li>driver.switch_to.alert():警告框处理。</li>
+<li>driver.execute_script(js):调用js。</li>
+<li>driver.get_cookies():获取当前会话所有cookie信息。</li>
+<li>driver.get_cookie(cookie_name)：返回字典的key为“cookie_name”的cookie信息。<br>实例：driver.get_cookie(“NET_SessionId”)</li>
+<li>driver.add_cookie(cookie_dict):添加cookie。“cookie_dict”指字典对象，必须有name和value值。</li>
+<li>driver.delete_cookie(name,optionsString):删除cookie信息。</li>
+<li>driver.delete_all_cookies():删除所有cookie信息。</li>
+</ul>
+<p>至于元素的搜索有tag_name,xpath,id等多种方式，这里不一一列举,详见文档</p>
+<p>首先是浏览器的打开，这里用的是chrome引擎<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">browser = webdriver.Chrome()</span><br><span class="line">url = <span class="string">'https://finance.sina.com.cn/'</span></span><br><span class="line">browser.get(url)</span><br></pre></td></tr></table></figure></p>
+<p>然后是关于超时加载的问题，这里我由于网速慢我设置了较长的等待时间等到一些元素加载完再执行js脚本让浏览器停止加载全部页面</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">openHomePage</span><span class="params">(browser,url)</span>:</span></span><br><span class="line">    browser.set_page_load_timeout(<span class="number">240</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        browser.get(url)</span><br><span class="line">    <span class="keyword">except</span> TimeoutException:</span><br><span class="line">        print(<span class="string">'stop load'</span>)</span><br><span class="line">        browser.execute_script(<span class="string">'window.stop ? window.stop() : document.execCommand("Stop");'</span>) <span class="comment">#执行js脚本</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<p>之后就是按要求搜索到对应html元素并且执行对应操作,，就是各种find_element然后click或者send_key,然后控制一下sleep来等待加载网页元素防止报错元素不存在即还未加载完这里就不一一贴代码了，后面会放代码链接</p>
+<p>这里有一个用于切换tab页面的可以看一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switch_handle</span><span class="params">(handles,current_handle)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> handle <span class="keyword">in</span> handles:</span><br><span class="line">        <span class="keyword">if</span> handle != current_handle:</span><br><span class="line">            <span class="keyword">return</span> handle</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">switch_page</span><span class="params">(current_handle,handles,new_handle,browser)</span>:</span></span><br><span class="line">    current_handle = browser.current_window_handle</span><br><span class="line">    handles = browser.window_handles</span><br><span class="line">    new_handle = switch_handle(handles,current_handle)</span><br><span class="line">    browser.close()</span><br><span class="line">    browser.switch_to.window(new_handle)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<p>第一次搬砖过程中由于是第一次入坑selenium而且有点小偷懒，于是GUI也没关，就用上面那个步骤把输入文件读入后for了一下暴力解决，结果显而易见龟速爬虫，于是后面朋友还是类似操作的爬虫要求我进行了优化</p>
+<h5 id="进行优化"><a href="#进行优化" class="headerlink" title="进行优化"></a>进行优化</h5><p>由于初次搬砖结果一般般,然后我开始考虑优化，首先一个是使用了GUI然后速度太慢，第二个由于等待加载过程什么也没做cpu空闲着可以考虑用多线程优化,第三个通过分析网页链接可以知道公司高管界面的url有一定规律，直接get这个界面省去前面的操作</p>
+<p>关于无头浏览器，一开始我是去直接安装phantomjs但是遇到各种坑后面发现selenium后面不支持phantomjs了，有些接口是没维护的，于是后来使用了chrome的无头模式，也不会慢多少</p>
+<p>无头模式可以在生成driver对象的时候填入chrome_options进行设置，下面代码顺便设置了一些service_args用来禁用一些图片加载和忽略一些网络错误以及启用浏览器cache</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chrome_options = Options()</span><br><span class="line">chrome_options.add_argument(<span class="string">"--headless"</span>)</span><br><span class="line">service_args = [<span class="string">'--ignore-ssl-errors=true'</span>,<span class="string">'--ssl-protocol=TLSv1'</span>,<span class="string">'--load-images=no'</span>,<span class="string">'--disk-cache=yes'</span>]</span><br><span class="line">browser = webdriver.Chrome(service_args=service_args,chrome_options=chrome_options)</span><br></pre></td></tr></table></figure>
+<p>关于多线程，这部分经历了一定的思考过程，由于不同线程之间的互斥访问资源，最后想到使用循环队列来解决这个问题，这里我写了一个类用来实现这部分功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">conChrome</span>:</span></span><br><span class="line">    chrome_max = <span class="number">1</span>　<span class="comment"># 最大线程数</span></span><br><span class="line">    interval = <span class="number">0.00001</span> <span class="comment"># 两个线程之间创建时间间隔</span></span><br><span class="line">    timeout = <span class="number">240</span> <span class="comment"># 设置超时时间</span></span><br><span class="line">    chrome_options = Options()</span><br><span class="line">    service_args = [<span class="string">'--ignore-ssl-errors=true'</span>,<span class="string">'--ssl-protocol=TLSv1'</span>,<span class="string">'--load-images=no'</span>,<span class="string">'--disk-cache=yes'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.q_chrome = queue.Queue() <span class="comment">#chromeDriver队列</span></span><br><span class="line">        self.chrome_options.add_argument(<span class="string">"--headless"</span>)</span><br><span class="line">        self.q_output = queue.Queue() <span class="comment">#偷懒用来存储输出</span></span><br><span class="line">        self.q_error = queue.Queue()　<span class="comment">#偷懒用来存储error</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 多线程创建driver</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_chrome</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">open_threading</span><span class="params">()</span>:</span></span><br><span class="line">            browser = webdriver.Chrome(service_args=conChrome.service_args,chrome_options=conChrome.chrome_options)</span><br><span class="line">            browser.implicitly_wait(conChrome.timeout)</span><br><span class="line">            browser.set_page_load_timeout(conChrome.timeout)</span><br><span class="line">            self.q_chrome.put(browser) <span class="comment">#　往队列末尾添加driver</span></span><br><span class="line">        </span><br><span class="line">        th = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(conChrome.chrome_max):</span><br><span class="line">            t = threading.Thread(target=open_threading)</span><br><span class="line">            th.append(t)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> th:</span><br><span class="line">            i.start()</span><br><span class="line">            time.sleep(conChrome.interval) <span class="comment">#设置两个线程创建时间间隔</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> th:</span><br><span class="line">            i.join()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 多线程关闭chrome</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_chrome</span><span class="params">(self)</span>:</span></span><br><span class="line">        th = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">close_threading</span><span class="params">()</span>:</span></span><br><span class="line">            browser = self.q_chrome.get()</span><br><span class="line">            browser.quit()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.q_chrome.qsize()):</span><br><span class="line">            t = threading.Thread(target=close_threading)</span><br><span class="line">            th.append(t)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> th:</span><br><span class="line">            i.start()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> th:</span><br><span class="line">            i.join()</span><br></pre></td></tr></table></figure>
+<p>然后在类里面写一个getPage函数,get一个driver出队列,操作完put回去队列尾部，具体代码就不贴全部了给关键操作后面有链接</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPage</span><span class="params">(url)</span>:</span></span><br><span class="line">    browser = self.q_chrome.get()</span><br><span class="line">    browser.get(url)</span><br><span class="line">    ... <span class="comment"># 一些爬虫操作抓取信息</span></span><br><span class="line">    self.q_chrome.put(browser)</span><br></pre></td></tr></table></figure>
+<p>最后是main里面创建多线程</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cur = conChrome()</span><br><span class="line">conChrome.chrome_max = <span class="number">3</span></span><br><span class="line">cur.open_chrome()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'chrome num is '</span>,cur.q_chrome.qsize())</span><br><span class="line">th = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> input:</span><br><span class="line">    t = threading.Thread(target=cur.getPage,args=(i,))</span><br><span class="line">    th.append(t)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> th:</span><br><span class="line">    i.start()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> th:</span><br><span class="line">    i.join()</span><br><span class="line"></span><br><span class="line">cur.close_chrome()</span><br></pre></td></tr></table></figure>
+<h4 id="源码链接"><a href="#源码链接" class="headerlink" title="源码链接"></a>源码链接</h4><ul>
+<li><a href="https://github.com/caijh23/SpiderSinaFinance" target="_blank" rel="noopener">源码</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/" data-id="cjsesnjmf000damnqmbpjvah3" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/30/关于dom的事件传播机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">关于dom的事件传播机制</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/21/菜鸡的selenium之旅/">菜鸡的selenium之旅</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/30/关于dom的事件传播机制/">关于dom的事件传播机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/30/finalReport/">finalReport</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/30/关于项目管理的一些小感想/">关于项目管理的一些小感想</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/30/post-403/">post 403</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
