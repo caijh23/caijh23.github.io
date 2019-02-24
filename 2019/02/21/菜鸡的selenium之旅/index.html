@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/comPage.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/CEOpage.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/21/菜鸡的selenium之旅/chromeVersion.png">
-<meta property="og:updated_time" content="2019-02-24T03:42:16.275Z">
+<meta property="og:updated_time" content="2019-02-24T03:54:29.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="菜鸡的selenium之旅">
 <meta name="twitter:description" content="需求(注：以下举例不包含任何恶意行为，如有不适请予以指正) 前几天帮朋友写一个爬虫，给出一些公司的code和公司高管姓名，要求爬取对应高管的一些公开信息，我们打开新浪财经网，先手动操作这个过程,首先是首页搜索框输入公司代码如000021  然后打开一个新的页面，这里我们点击进入公司页面  这里公司界面左下方我们找到公司高管的链接  之后进入公司高管页面  再之后就是搜索到对应的姓名点击链接进入并搜">
@@ -106,7 +106,173 @@
 <p>首先selenium的浏览器可以选择phantomjs,chrome,firefox,这里由于不想折腾太多环境问题，我就选择了chrome</p>
 <h4 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h4><p>首先查看chrome版本,在浏览器标签栏输入chrome://version查看浏览器版本信息</p>
 <p><img src="/2019/02/21/菜鸡的selenium之旅/chromeVersion.png" alt="chrome_version"></p>
-<p>然后对应如下表格找到对应chromeDriver版本下载安装<br>| chromeDriver版本 | chrome版本 |<br>|:——–:|:——–:|<br>|v2.43|v69-71<br>|v2.42|v68-70<br>|v2.41|v67-69<br>|v2.40|v66-68<br>|v2.39|v66-68<br>|v2.38|v65-67<br>|v2.37|v64-66<br>|v2.36|v63-65<br>|v2.35|v62-64<br>|v2.34|v61-63<br>|v2.33|v60-62<br>|v2.32|v59-61<br>|v2.31|v58-60<br>|v2.30|v58-60<br>|v2.29|v56-58<br>|v2.28|v55-57<br>|v2.27|v54-56<br>|v2.26|v53-55<br>|v2.25|v53-55<br>|v2.24|v52-54<br>|v2.23|v51-53<br>|v2.22|v49-52<br>|v2.21|v46-50<br>|v2.20|v43-48<br>|v2.19|v43-47<br>|v2.18|v43-46<br>|v2.17|v42-43<br>|v2.13|v42-45<br>|v2.15|v40-43<br>|v2.14|v39-42<br>|v2.13|v38-41<br>|v2.12|v36-40<br>|v2.11|v36-40<br>|v2.10|v33-36<br>|v2.9|v31-34<br>|v2.8|v30-33<br>|v2.7|v30-33<br>|v2.6|v29-32<br>|v2.5|v29-32<br>|v2.4|v29-32</p>
+<p>然后对应如下表格找到对应chromeDriver版本下载安装</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">chromeDriver版本</th>
+<th style="text-align:center">chrome版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">v2.43</td>
+<td style="text-align:center">v69-71</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.42</td>
+<td style="text-align:center">v68-70</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.41</td>
+<td style="text-align:center">v67-69</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.40</td>
+<td style="text-align:center">v66-68</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.39</td>
+<td style="text-align:center">v66-68</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.38</td>
+<td style="text-align:center">v65-67</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.37</td>
+<td style="text-align:center">v64-66</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.36</td>
+<td style="text-align:center">v63-65</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.35</td>
+<td style="text-align:center">v62-64</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.33</td>
+<td style="text-align:center">v60-62</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.32</td>
+<td style="text-align:center">v59-61</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.31</td>
+<td style="text-align:center">v58-60</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.30</td>
+<td style="text-align:center">v58-60</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.29</td>
+<td style="text-align:center">v56-58</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.28</td>
+<td style="text-align:center">v55-57</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.27</td>
+<td style="text-align:center">v54-56</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.26</td>
+<td style="text-align:center">v53-55</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.25</td>
+<td style="text-align:center">v53-55</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.24</td>
+<td style="text-align:center">v52-54</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.23</td>
+<td style="text-align:center">v51-53</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.22</td>
+<td style="text-align:center">v49-52</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.21</td>
+<td style="text-align:center">v46-50</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.20</td>
+<td style="text-align:center">v43-48</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.19</td>
+<td style="text-align:center">v43-47</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.18</td>
+<td style="text-align:center">v43-46</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.17</td>
+<td style="text-align:center">v42-43</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.13</td>
+<td style="text-align:center">v42-45</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.15</td>
+<td style="text-align:center">v40-43</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.14</td>
+<td style="text-align:center">v39-42</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.13</td>
+<td style="text-align:center">v38-41</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.12</td>
+<td style="text-align:center">v36-40</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.11</td>
+<td style="text-align:center">v36-40</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.10</td>
+<td style="text-align:center">v33-36</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.9</td>
+<td style="text-align:center">v31-34</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.8</td>
+<td style="text-align:center">v30-33</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.7</td>
+<td style="text-align:center">v30-33</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.6</td>
+<td style="text-align:center">v29-32</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.5</td>
+<td style="text-align:center">v29-32</td>
+</tr>
+<tr>
+<td style="text-align:center">v2.4</td>
+<td style="text-align:center">v29-32</td>
+</tr>
+</tbody>
+</table>
 <p>这边是chromedriver的链接</p>
 <ul>
 <li><a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">官网</a></li>
